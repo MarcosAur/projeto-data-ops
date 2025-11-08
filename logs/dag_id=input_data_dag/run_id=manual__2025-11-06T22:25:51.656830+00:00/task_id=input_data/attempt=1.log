@@ -1,0 +1,28 @@
+[2025-11-06T22:26:14.890+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-06T22:26:14.931+0000] {taskinstance.py:2631} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: input_data_dag.input_data manual__2025-11-06T22:25:51.656830+00:00 [queued]>
+[2025-11-06T22:26:14.937+0000] {taskinstance.py:2631} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: input_data_dag.input_data manual__2025-11-06T22:25:51.656830+00:00 [queued]>
+[2025-11-06T22:26:14.938+0000] {taskinstance.py:2884} INFO - Starting attempt 1 of 1
+[2025-11-06T22:26:15.484+0000] {taskinstance.py:2907} INFO - Executing <Task(PythonOperator): input_data> on 2025-11-06 22:25:51.656830+00:00
+[2025-11-06T22:26:15.509+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'input_data_dag', 'input_data', 'manual__2025-11-06T22:25:51.656830+00:00', '--job-id', '101', '--raw', '--subdir', 'DAGS_FOLDER/input_data_dag.py', '--cfg-path', '/tmp/tmp9iwk0ox5']
+[2025-11-06T22:26:15.512+0000] {standard_task_runner.py:105} INFO - Job 101: Subtask input_data
+[2025-11-06T22:26:15.517+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=86) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-11-06T22:26:15.518+0000] {standard_task_runner.py:72} INFO - Started process 118 to run task
+[2025-11-06T22:26:16.001+0000] {task_command.py:467} INFO - Running <TaskInstance: input_data_dag.input_data manual__2025-11-06T22:25:51.656830+00:00 [running]> on host 127da4241ae8
+[2025-11-06T22:26:25.654+0000] {taskinstance.py:3157} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='input_data_dag' AIRFLOW_CTX_TASK_ID='input_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-06T22:25:51.656830+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-06T22:25:51.656830+00:00'
+[2025-11-06T22:26:25.656+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-11-06T22:26:25.656+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-11-06T22:26:25.657+0000] {logging_mixin.py:190} INFO - Current task name:input_data state:running start_date:2025-11-06 22:26:14.932242+00:00
+[2025-11-06T22:26:25.657+0000] {logging_mixin.py:190} INFO - Dag name:input_data_dag and current dag run status:running
+[2025-11-06T22:26:25.657+0000] {taskinstance.py:740} INFO - ::endgroup::
+[2025-11-06T22:26:34.827+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-11-06T22:26:34.848+0000] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2025-11-06T22:26:34.848+0000] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=input_data_dag, task_id=input_data, run_id=manual__2025-11-06T22:25:51.656830+00:00, execution_date=20251106T222551, start_date=20251106T222614, end_date=20251106T222634
+[2025-11-06T22:26:34.900+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-11-06T22:26:34.900+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-11-06T22:26:34.900+0000] {logging_mixin.py:190} INFO - Dag name:input_data_dag queued_at:2025-11-06 22:25:51.692353+00:00
+[2025-11-06T22:26:34.901+0000] {logging_mixin.py:190} INFO - Task hostname:127da4241ae8 operator:PythonOperator
+[2025-11-06T22:26:34.964+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-11-06T22:26:34.987+0000] {taskinstance.py:3924} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-06T22:26:34.999+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

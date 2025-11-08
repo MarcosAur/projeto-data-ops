@@ -1,0 +1,153 @@
+[2025-11-06T22:14:56.709+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-06T22:14:56.731+0000] {taskinstance.py:2631} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: input_data_dag.input_data manual__2025-11-06T22:14:55.086913+00:00 [queued]>
+[2025-11-06T22:14:56.736+0000] {taskinstance.py:2631} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: input_data_dag.input_data manual__2025-11-06T22:14:55.086913+00:00 [queued]>
+[2025-11-06T22:14:56.736+0000] {taskinstance.py:2884} INFO - Starting attempt 1 of 1
+[2025-11-06T22:14:56.748+0000] {taskinstance.py:2907} INFO - Executing <Task(PythonOperator): input_data> on 2025-11-06 22:14:55.086913+00:00
+[2025-11-06T22:14:56.755+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=286) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-11-06T22:14:56.756+0000] {standard_task_runner.py:72} INFO - Started process 288 to run task
+[2025-11-06T22:14:56.757+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'input_data_dag', 'input_data', 'manual__2025-11-06T22:14:55.086913+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/input_data_dag.py', '--cfg-path', '/tmp/tmph_wpdjj0']
+[2025-11-06T22:14:56.758+0000] {standard_task_runner.py:105} INFO - Job 38: Subtask input_data
+[2025-11-06T22:14:56.821+0000] {task_command.py:467} INFO - Running <TaskInstance: input_data_dag.input_data manual__2025-11-06T22:14:55.086913+00:00 [running]> on host 127da4241ae8
+[2025-11-06T22:14:56.876+0000] {taskinstance.py:3157} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='input_data_dag' AIRFLOW_CTX_TASK_ID='input_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-06T22:14:55.086913+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-06T22:14:55.086913+00:00'
+[2025-11-06T22:14:56.878+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-11-06T22:14:56.878+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-11-06T22:14:56.878+0000] {logging_mixin.py:190} INFO - Current task name:input_data state:running start_date:2025-11-06 22:14:56.731538+00:00
+[2025-11-06T22:14:56.878+0000] {logging_mixin.py:190} INFO - Dag name:input_data_dag and current dag run status:running
+[2025-11-06T22:14:56.878+0000] {taskinstance.py:740} INFO - ::endgroup::
+[2025-11-06T22:14:57.372+0000] {taskinstance.py:3336} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 776, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 742, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/input_data_dag.py", line 37, in input_data
+    s3 = boto3.client(
+         ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/boto3/__init__.py", line 92, in client
+    return _get_default_session().client(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/boto3/session.py", line 322, in client
+    return self._session.create_client(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/session.py", line 1015, in create_client
+    client = client_creator.create_client(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/client.py", line 165, in create_client
+    client_args = self._get_client_args(
+                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/client.py", line 524, in _get_client_args
+    return args_creator.get_client_args(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/args.py", line 163, in get_client_args
+    endpoint = endpoint_creator.create_endpoint(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 408, in create_endpoint
+    raise ValueError(f"Invalid endpoint: {endpoint_url}")
+ValueError: Invalid endpoint: minio:9000
+[2025-11-06T22:14:57.612+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-11-06T22:14:57.612+0000] {logging_mixin.py:190} INFO - Task start:2025-11-06 22:14:56.731538+00:00 end:2025-11-06 22:14:57.611754+00:00 duration:0.880216
+[2025-11-06T22:14:57.612+0000] {logging_mixin.py:190} INFO - Task:<Task(PythonOperator): input_data> dag:<DAG: input_data_dag> dagrun:<DagRun input_data_dag @ 2025-11-06 22:14:55.086913+00:00: manual__2025-11-06T22:14:55.086913+00:00, state:running, queued_at: 2025-11-06 22:14:55.099203+00:00. externally triggered: True>
+[2025-11-06T22:14:57.612+0000] {logging_mixin.py:190} INFO - Failure caused by Invalid endpoint: minio:9000
+[2025-11-06T22:14:57.612+0000] {taskinstance.py:1242} INFO - Marking task as FAILED. dag_id=input_data_dag, task_id=input_data, run_id=manual__2025-11-06T22:14:55.086913+00:00, execution_date=20251106T221455, start_date=20251106T221456, end_date=20251106T221457
+[2025-11-06T22:14:57.727+0000] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2025-11-06T22:14:57.728+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 38 for task input_data (Invalid endpoint: minio:9000; 288)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3029, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 282, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3184, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3208, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 776, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 742, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/input_data_dag.py", line 37, in input_data
+    s3 = boto3.client(
+         ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/boto3/__init__.py", line 92, in client
+    return _get_default_session().client(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/boto3/session.py", line 322, in client
+    return self._session.create_client(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/session.py", line 1015, in create_client
+    client = client_creator.create_client(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/client.py", line 165, in create_client
+    client_args = self._get_client_args(
+                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/client.py", line 524, in _get_client_args
+    return args_creator.get_client_args(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/args.py", line 163, in get_client_args
+    endpoint = endpoint_creator.create_endpoint(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 408, in create_endpoint
+    raise ValueError(f"Invalid endpoint: {endpoint_url}")
+ValueError: Invalid endpoint: minio:9000
+[2025-11-06T22:14:57.812+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-11-06T22:14:57.830+0000] {taskinstance.py:3924} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-06T22:14:57.832+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
