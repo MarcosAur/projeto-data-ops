@@ -56,7 +56,7 @@ def input_data(**kwargs):
 
 with DAG(
         dag_id='input_data_dag',
-        start_date=datetime(2024, 1, 1),
+        start_date=datetime(2025, 1, 1),
         schedule_interval='@monthly',
         catchup=True
      ) as dag:

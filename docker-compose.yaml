@@ -90,15 +90,17 @@ services:
     image: mysql:8.0
     container_name: mysql-labelstudio
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: lsdb
-      MYSQL_USER: lsuser
-      MYSQL_PASSWORD: lspassword
+      MYSQL_ROOT_PASSWORD: 'rootpassword'
+      MYSQL_DATABASE: 'selic_data'
+      MYSQL_USER: 'root_user'
+      MYSQL_PASSWORD: 'passwd'
     ports:
       - "3306:3306"
     command: --default-authentication-plugin=mysql_native_password
     volumes:
       - mysql-data:/var/lib/mysql
+    networks:
+      - project
 
   labelstudio:
     image: heartexlabs/label-studio:latest
@@ -112,11 +114,13 @@ services:
       LABEL_STUDIO_DATABASE_PASSWORD: lspassword
       LABEL_STUDIO_DATABASE_OPTIONS: '{"charset": "utf8mb4"}'
     ports:
-      - "8080:8080"
+      - "8085:8085"
     depends_on:
       - mysql
     volumes:
       - label-studio-data:/label-studio/data
+    networks:
+      - project
   minio:
     image: minio/minio:RELEASE.2023-10-16T04-13-43Z
     container_name: minio
@@ -351,6 +355,8 @@ services:
 
 volumes:
   postgres-db-volume:
+  label-studio-data:
+  mysql-data:
 
 networks:
   project:
