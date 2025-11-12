@@ -831,3 +831,24 @@
 [2025-11-12T22:24:40.602+0000] {logging_mixin.py:190} INFO - [2025-11-12T22:24:40.601+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-11-12T22:24:40.630+0000] {logging_mixin.py:190} INFO - [2025-11-12T22:24:40.630+0000] {dag.py:4180} INFO - Setting next_dagrun for inserting_data_on_labelstudio_dag to 2025-11-01 00:00:00+00:00, run_after=2025-12-01 00:00:00+00:00
 [2025-11-12T22:24:40.656+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/inserting_data_on_labelstudio.py took 0.376 seconds
+[2025-11-12T22:25:11.164+0000] {processor.py:186} INFO - Started process (PID=1513) to work on /opt/airflow/dags/inserting_data_on_labelstudio.py
+[2025-11-12T22:25:11.169+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/inserting_data_on_labelstudio.py for tasks to queue
+[2025-11-12T22:25:11.173+0000] {logging_mixin.py:190} INFO - [2025-11-12T22:25:11.172+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/inserting_data_on_labelstudio.py
+[2025-11-12T22:25:11.336+0000] {processor.py:925} INFO - DAG(s) 'inserting_data_on_labelstudio_dag' retrieved from /opt/airflow/dags/inserting_data_on_labelstudio.py
+[2025-11-12T22:25:11.349+0000] {logging_mixin.py:190} INFO - [2025-11-12T22:25:11.349+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-11-12T22:25:11.368+0000] {logging_mixin.py:190} INFO - [2025-11-12T22:25:11.367+0000] {dag.py:4180} INFO - Setting next_dagrun for inserting_data_on_labelstudio_dag to 2025-11-01 00:00:00+00:00, run_after=2025-12-01 00:00:00+00:00
+[2025-11-12T22:25:11.398+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/inserting_data_on_labelstudio.py took 0.244 seconds
+[2025-11-12T22:25:41.781+0000] {processor.py:186} INFO - Started process (PID=1579) to work on /opt/airflow/dags/inserting_data_on_labelstudio.py
+[2025-11-12T22:25:41.783+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/inserting_data_on_labelstudio.py for tasks to queue
+[2025-11-12T22:25:41.788+0000] {logging_mixin.py:190} INFO - [2025-11-12T22:25:41.787+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/inserting_data_on_labelstudio.py
+[2025-11-12T22:25:41.950+0000] {processor.py:925} INFO - DAG(s) 'inserting_data_on_labelstudio_dag' retrieved from /opt/airflow/dags/inserting_data_on_labelstudio.py
+[2025-11-12T22:25:41.964+0000] {logging_mixin.py:190} INFO - [2025-11-12T22:25:41.963+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-11-12T22:25:41.985+0000] {logging_mixin.py:190} INFO - [2025-11-12T22:25:41.984+0000] {dag.py:4180} INFO - Setting next_dagrun for inserting_data_on_labelstudio_dag to 2025-11-01 00:00:00+00:00, run_after=2025-12-01 00:00:00+00:00
+[2025-11-12T22:25:42.014+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/inserting_data_on_labelstudio.py took 0.249 seconds
+[2025-11-12T22:26:12.421+0000] {processor.py:186} INFO - Started process (PID=1645) to work on /opt/airflow/dags/inserting_data_on_labelstudio.py
+[2025-11-12T22:26:12.423+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/inserting_data_on_labelstudio.py for tasks to queue
+[2025-11-12T22:26:12.427+0000] {logging_mixin.py:190} INFO - [2025-11-12T22:26:12.427+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/inserting_data_on_labelstudio.py
+[2025-11-12T22:26:12.587+0000] {processor.py:925} INFO - DAG(s) 'inserting_data_on_labelstudio_dag' retrieved from /opt/airflow/dags/inserting_data_on_labelstudio.py
+[2025-11-12T22:26:12.603+0000] {logging_mixin.py:190} INFO - [2025-11-12T22:26:12.602+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-11-12T22:26:12.617+0000] {logging_mixin.py:190} INFO - [2025-11-12T22:26:12.617+0000] {dag.py:4180} INFO - Setting next_dagrun for inserting_data_on_labelstudio_dag to 2025-11-01 00:00:00+00:00, run_after=2025-12-01 00:00:00+00:00
+[2025-11-12T22:26:12.634+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/inserting_data_on_labelstudio.py took 0.224 seconds
