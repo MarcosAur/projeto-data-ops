@@ -96,29 +96,41 @@ services:
       MYSQL_PASSWORD: 'passwd'
     ports:
       - "3306:3306"
-    command: --default-authentication-plugin=mysql_native_password
     volumes:
       - mysql-data:/var/lib/mysql
     networks:
       - project
 
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - labelstudio_data:/var/lib/sqlite
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_INSTALL_PLUGINS=frser-sqlite-datasource  # plugin SQLite
+    networks:
+      - project
+
   labelstudio:
     image: heartexlabs/label-studio:latest
-    container_name: label-studio
-    environment:
-      LABEL_STUDIO_DATABASE_ENGINE: django.db.backends.mysql
-      LABEL_STUDIO_DATABASE_HOST: mysql
-      LABEL_STUDIO_DATABASE_PORT: 3306
-      LABEL_STUDIO_DATABASE_NAME: lsdb
-      LABEL_STUDIO_DATABASE_USER: lsuser
-      LABEL_STUDIO_DATABASE_PASSWORD: lspassword
-      LABEL_STUDIO_DATABASE_OPTIONS: '{"charset": "utf8mb4"}'
+    container_name: labelstudio
+    restart: unless-stopped
     ports:
-      - "8085:8085"
+      - "8085:8080"
+    environment:
+      - LABEL_STUDIO_USERNAME=admin
+      - LABEL_STUDIO_PASSWORD=admin
+      - LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true
+      - LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=/label-studio/data
+    volumes:
+      - labelstudio_data:/label-studio/data
+      - labelstudio_static:/label-studio/static
     depends_on:
       - mysql
-    volumes:
-      - label-studio-data:/label-studio/data
     networks:
       - project
   minio:
@@ -136,7 +148,6 @@ services:
       - ./minio-data:/data
     networks:
       - project
-
   postgres:
     image: postgres:13
     environment:
@@ -355,8 +366,10 @@ services:
 
 volumes:
   postgres-db-volume:
-  label-studio-data:
+  labelstudio_data:
   mysql-data:
+  labelstudio_static:
+  grafana_data:
 
 networks:
   project:

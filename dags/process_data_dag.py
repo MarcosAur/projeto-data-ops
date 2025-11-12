@@ -44,8 +44,7 @@ def process_data():
 
             df = pd.read_csv(StringIO(csv_data), sep=";")
 
-            tabela = key.split("/")[-1].replace(".csv", "")
-            df.to_sql(tabela, con=engine, if_exists="append", index=False)
+            df.to_sql('data', con=engine, if_exists="append", index=False)
 
 
             # s3.delete_object(Bucket='bronze', Key=key)
