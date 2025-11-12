@@ -1,0 +1,30 @@
+[2025-11-12T23:19:44.408+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-12T23:19:44.429+0000] {taskinstance.py:2631} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: inserting_data_on_labelstudio_dag.inserting_data_on_labelstudio manual__2025-11-12T23:19:43.049340+00:00 [queued]>
+[2025-11-12T23:19:44.434+0000] {taskinstance.py:2631} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: inserting_data_on_labelstudio_dag.inserting_data_on_labelstudio manual__2025-11-12T23:19:43.049340+00:00 [queued]>
+[2025-11-12T23:19:44.435+0000] {taskinstance.py:2884} INFO - Starting attempt 1 of 1
+[2025-11-12T23:19:44.444+0000] {taskinstance.py:2907} INFO - Executing <Task(PythonOperator): inserting_data_on_labelstudio> on 2025-11-12 23:19:43.049340+00:00
+[2025-11-12T23:19:44.451+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=254) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-11-12T23:19:44.452+0000] {standard_task_runner.py:72} INFO - Started process 256 to run task
+[2025-11-12T23:19:44.452+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'inserting_data_on_labelstudio_dag', 'inserting_data_on_labelstudio', 'manual__2025-11-12T23:19:43.049340+00:00', '--job-id', '341', '--raw', '--subdir', 'DAGS_FOLDER/inserting_data_on_labelstudio.py', '--cfg-path', '/tmp/tmpm6pbgamh']
+[2025-11-12T23:19:44.454+0000] {standard_task_runner.py:105} INFO - Job 341: Subtask inserting_data_on_labelstudio
+[2025-11-12T23:19:44.493+0000] {task_command.py:467} INFO - Running <TaskInstance: inserting_data_on_labelstudio_dag.inserting_data_on_labelstudio manual__2025-11-12T23:19:43.049340+00:00 [running]> on host d10076d5890f
+[2025-11-12T23:19:44.550+0000] {taskinstance.py:3157} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='inserting_data_on_labelstudio_dag' AIRFLOW_CTX_TASK_ID='inserting_data_on_labelstudio' AIRFLOW_CTX_EXECUTION_DATE='2025-11-12T23:19:43.049340+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-12T23:19:43.049340+00:00'
+[2025-11-12T23:19:44.552+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-11-12T23:19:44.552+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-11-12T23:19:44.552+0000] {logging_mixin.py:190} INFO - Current task name:inserting_data_on_labelstudio state:running start_date:2025-11-12 23:19:44.430122+00:00
+[2025-11-12T23:19:44.552+0000] {logging_mixin.py:190} INFO - Dag name:inserting_data_on_labelstudio_dag and current dag run status:running
+[2025-11-12T23:19:44.552+0000] {taskinstance.py:740} INFO - ::endgroup::
+[2025-11-12T23:19:44.553+0000] {logging_mixin.py:190} INFO - None
+[2025-11-12T23:19:44.594+0000] {logging_mixin.py:190} INFO - ❌ Erro ao enviar tarefas: 401 - {"id":"e657717c-894f-4fa0-b68a-62c06b6c2cc9","status_code":401,"version":"1.21.0","detail":"Invalid token.","exc_info":null}
+[2025-11-12T23:19:44.607+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-11-12T23:19:44.618+0000] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2025-11-12T23:19:44.619+0000] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=inserting_data_on_labelstudio_dag, task_id=inserting_data_on_labelstudio, run_id=manual__2025-11-12T23:19:43.049340+00:00, execution_date=20251112T231943, start_date=20251112T231944, end_date=20251112T231944
+[2025-11-12T23:19:44.640+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-11-12T23:19:44.641+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-11-12T23:19:44.641+0000] {logging_mixin.py:190} INFO - Dag name:inserting_data_on_labelstudio_dag queued_at:2025-11-12 23:19:43.062948+00:00
+[2025-11-12T23:19:44.641+0000] {logging_mixin.py:190} INFO - Task hostname:d10076d5890f operator:PythonOperator
+[2025-11-12T23:19:44.667+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-11-12T23:19:44.684+0000] {taskinstance.py:3924} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-12T23:19:44.688+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

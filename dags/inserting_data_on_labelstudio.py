@@ -6,11 +6,9 @@ from airflow.operators.python import PythonOperator
 import mysql.connector
 import requests
 import json
-from dotenv import load_dotenv
 
 
 def inserting_data_on_labelstudio():
-    load_dotenv()
     MYSQL_CONFIG = {
         'host': 'mysql',
         'user': 'root',
@@ -19,9 +17,9 @@ def inserting_data_on_labelstudio():
     }
 
     LABEL_STUDIO_URL = "http://labelstudio:8080"
-    API_TOKEN = os.getenv('LABEL_STUDIO_API_TOKEN')
+    API_TOKEN = '38ebe06f1173dae6938388da3e172b7b6643f4e8'
     PROJECT_ID = 1
-    #
+
     conn = mysql.connector.connect(**MYSQL_CONFIG)
     cursor = conn.cursor(dictionary=True)
 
