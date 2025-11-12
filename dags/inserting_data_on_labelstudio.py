@@ -1,13 +1,16 @@
-import dotenv
+import os
+
 from airflow import DAG
 from datetime import datetime
 from airflow.operators.python import PythonOperator
 import mysql.connector
 import requests
 import json
+from dotenv import load_dotenv
+
 
 def inserting_data_on_labelstudio():
-
+    load_dotenv()
     MYSQL_CONFIG = {
         'host': 'mysql',
         'user': 'root',
@@ -16,7 +19,7 @@ def inserting_data_on_labelstudio():
     }
 
     LABEL_STUDIO_URL = "http://labelstudio:8080"
-    API_TOKEN = dotenv.get_key('')
+    API_TOKEN = os.getenv('LABEL_STUDIO_API_TOKEN')
     PROJECT_ID = 1
     #
     conn = mysql.connector.connect(**MYSQL_CONFIG)
